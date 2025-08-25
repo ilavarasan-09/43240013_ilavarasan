@@ -1,0 +1,17 @@
+create database details;
+use details;
+create table company(
+eName  varchar(20) not null,
+age int not null,
+email varchar(30) unique not null
+);
+insert into company values('kamal','19','abcgmail.com'),('amrith','20','ccbgmail.com'),('viki','19','vtkgmail.com'),('nan','20','cskgmail.com');
+alter table company add primary key(id);
+select * from  company;
+alter table company 
+MODIFY age INT NULL;
+select * from company;
+alter table company
+drop column eName;
+select * from company;
+desc company;

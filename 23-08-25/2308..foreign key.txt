@@ -1,0 +1,31 @@
+create database ecommerce;
+use ecommerce;
+drop table category;
+drop table product;
+create table category (
+cid int primary key,
+cname varchar(30) not null  
+);
+insert into category values(10001,'story books'),
+(10002,'foreign cloths'),
+(10003,'indoor sports');
+
+create table product(
+pid int primary key,
+pname varchar(30) not null,
+cid int not null,
+foreign key(cid) references category(cid)
+);
+insert into product values (001,'harrry potter',10001),
+(002,'chinese collor shirt',10002),
+(003,'basketball',10003);
+select * from category;
+select *  from product;
+delete from category where cid=10001;
+delete from product where cid=10001;
+update category set cid=10001 where cid=10006;
+update product set cid=10001 where cid=10006;
+
+
+
+
