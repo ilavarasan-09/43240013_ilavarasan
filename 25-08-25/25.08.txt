@@ -1,0 +1,95 @@
+
+
+ ## --CREATING PARENT TABLE --
+create table Category1(
+cid int primary key,
+cname varchar(30),
+cdesc varchar(40)
+);
+
+ ## --TO ADD FOREIGN KEY AND CASCADE --
+create table Product1(
+pid int primary key,
+pname varchar(30),
+cid int not null,
+foreign key(cid) references category1 (cid)  #FOREIGN KEY ADDED
+on delete cascade  #CASCADE FOR DELETE ADDED
+on update cascade  #CASCADE FOR UPDATE
+);
+
+
+
+insert into category1 values ( 1,'techno','techno products'),(2,'Non-techno','Non-techno products'),(3,'Books','About education purpose'),(4,'Food','which can be consumed');
+select * from category1;
+insert into product1 values (1,'realme narzo n55',1),(2,'pizza',4),(3,'twiglight saga',3),(4,'floor mat',2),(5,'iphone',1),(6,'Chicken Biriyani',4),(7,'broom stick',2);
+select * from product1;
+
+ ## --CHECKING CASCADE FOR UPDATE AND DELETE --
+ delete from category1 where cid=1;
+ select * from category1; 
+ select * from product1; #WORKS Cid =1 Gets deleted on both tables ..
+ 
+ update category1 set cid=1 where cid=4;
+ select * from category1;
+ select * from product1; #WORKS Cid =4 Gets updated on both tables ..
+ 
+ 
+  ## --FOREIGN KEY FOR CONNECTING 3 TABLES --
+   ## --PARENT TABLE --
+  create table College(
+  cid int primary key,
+  cname varchar(30) not null
+  );
+  
+   ## --BOTH PARENT AND CHILD --
+   create table department(
+  did int primary key,
+  dname varchar(30) not null,
+  cid int ,
+  foreign key(cid) references college (cid) #foreign key for table college and department
+  on update cascade
+  on delete cascade
+  );
+  
+   ## --ONLY CHILD --
+   create table student1(
+  sid int primary key,
+  sname varchar(30) not null,
+  did int ,
+  foreign key(did) references department (did) #foreign key for table department and student1
+  on update cascade
+  on delete cascade
+  );
+  
+  desc college;
+  desc department;
+  desc student1;
+  
+  insert into college values 
+  ( 1,'Sathyabama University'),
+  ( 2,'St.Joseph College'),
+  ( 3,'Anna University'),
+  ( 4,'chennai University');
+  select * from college;
+  
+  insert into department values 
+  ( 101,'CSE',1),
+  ( 102,'EEE',1),
+  ( 103,'BME ',2),
+  ( 104,'ECE',3),
+  ( 105,'MECH',3);
+  select * from department;
+  
+  insert into student1 values 
+  ( 1001,'Virat',101),
+  ( 1002,'ashwin',101),
+  ( 1003,'rohit',105),
+  ( 1004,'Akash',104),
+  ( 1005,'Abraham',103);
+  
+  insert into student1 values
+  (1006,'mahi', 103);
+  
+  select * from student1;
+  
+   ## --CHECKING  --
