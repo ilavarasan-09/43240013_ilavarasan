@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Form</title>
+  <link rel="stylesheet" href="emp.css">
+</head>
+<body>
+  <form id="studentForm">
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name" type="text">
+      <div class="error" data-for="name"></div>
+    </div>
+    <div class="field">
+      <label for="regNo">Register No</label>
+      <input id="regNo" type="text">
+      <div class="error" data-for="regNo"></div>
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" type="text">
+      <div class="error" data-for="phone"></div>
+    </div>
+    <div class="field">
+      <label for="position">Position</label>
+      <select id="position">
+        <option value="">Select</option>
+        <option value="Manager">Manager</option>
+        <option value="Staff">Staff</option>
+      </select>
+      <div class="error" data-for="position"></div>
+    </div>
+    <div class="field">
+      <label for="year">Year</label>
+      <select id="year">
+        <option value="">Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <div class="error" data-for="year"></div>
+    </div>
+    <div class="actions">
+      <button type="button" id="okBtn">OK</button>
+    </div>
+  </form>
+
+  <div class="table-wrap">
+    <table id="studentsTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Register No</th>
+          <th>Phone</th>
+          <th>Position</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be added here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="emp2.js"></script>
+</body>
+</html>
