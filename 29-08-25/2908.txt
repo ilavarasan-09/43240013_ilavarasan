@@ -1,0 +1,47 @@
+create database placement;
+use placement;
+create table employees(
+eid int(50),
+ename varchar(25),
+salary int(25)
+);
+
+insert into employees values(001,'arun',50000),(002,'varun',55000),(003,'barun',60000),(004,'aaron',65000),(005,'aaroha',70000),(006,'varoha',75000);
+
+
+
+create table extra(
+eid int (50),
+salary int (25)
+);
+
+
+insert into extra values(001,5000),(003,6000),(004,7000),(005,6000),(006,8000),(009,7000);
+
+select * from extra;
+
+
+SELECT * from employees INNER JOIN extra where employees.eid=extra.eid;
+
+SELECT * from employees NATURAL JOIN extra; 
+
+SELECT * FROM employees LEFT OUTER JOIN extra ON (employees.eid = extra.eid);
+
+select * from employees right outer join extra on (employees.eid = extra.eid);
+
+select * from employees cross join extra ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
